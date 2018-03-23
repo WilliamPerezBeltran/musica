@@ -21,19 +21,24 @@
     background-color: #4CAF50;
     color: white;
 }
+div{
+	border:1px solid blue;
+	width: 200px;
+	height: 200px;
+	margin: 20px;
+	display: inline-block;
+}
 </style>
-
+<h1><%= @nombre_artista %></h1>
 <% if @albums %>
 	<table id="customers">
 		  <tr>
-		    <th>id</th>
-		    <th>nombre</th>
+		    <th>nombre del album </th>
 		    <th>url</th>
 		    <th>año de lanzamiento</th>
 		  </tr>
 		<% @albums.each do |album|%>
 			<tr>
-			   <td><%= album.id %></td>
 			    <td><%= album.name %></td>
 			    <td><%= album.image_url %></td>
 			    <td><%= album.released_at %></td>
@@ -44,3 +49,10 @@
 esta vacio no hay record 
 <% end  %>
 
+<% @albums.each do |album|%>
+	<div>
+	    <td><%= album.name %></td>
+	    <td><%= album.image_url %></td>
+	    <td><%= album.released_at %></td>
+	 </div>
+<% end %>

@@ -21,11 +21,17 @@
     background-color: #4CAF50;
     color: white;
 }
+div{
+	border:1px solid blue;
+	width: 200px;
+	height: 200px;
+	margin: 20px;
+	display: inline-block;
+}
 </style>
 
 <table id="customers">
   <tr>
-    <th>id</th>
     <th>nombre</th>
     <th>url</th>
     <th>show</th>
@@ -33,12 +39,21 @@
   </tr>
   <% @artists.each do |artist|%>
 	<tr>
-	    <td><%= artist.id %></td>
 	    <td><%= artist.name %></td>
-	    <td><%= artist.image_url %></td>
+	    <td><img src="<%= artist.image_url %>" alt=""> image </td>
 	    <td><%= link_to 'show', artist_path(artist)%></td>
 	 </tr>
 <% end %>
 
   
 </table>
+
+<% @artists.each do |artist|%>
+
+<div>
+	<td><%= artist.name %></td>
+	    <td><img src="<%= artist.image_url %>" alt=""> image </td>
+	    <td><%= link_to 'show', artist_path(artist)%></td>
+</div>
+	
+<% end %>
